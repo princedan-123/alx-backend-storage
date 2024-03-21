@@ -5,10 +5,7 @@
 -- You should use attributes formed and split for computing the lifespan
 
 SELECT band_name,
-CASE
-	WHEN split IS NULL THEN 2022 - formed
-	ELSE split - formed
-END AS lifespan
+	IF(split IS NULL, 2022, split) - formed AS lifespan
 FROM metal_bands
-WHERE style = 'Glam rock'
-ORDER BY lifespan DESC
+WHERE style LIKE '%Glam rock%'
+ORDER BY lifespan DESC;
