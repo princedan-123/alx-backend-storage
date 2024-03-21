@@ -4,11 +4,11 @@
 -- please use 2022 insteadof YEAR(CURDATE()))
 -- You should use attributes formed and split for computing the lifespan
 
-SELECT band_name
-WHERE style = 'Glam rock'
+SELECT band_name,
 CASE
-	WHEN split IS NULL OR formed IS NULL THEN 2022 - formed
+	WHEN split IS NULL THEN 2022 - formed
 	ELSE split - formed
 END AS lifespan
 FROM metal_bands
+WHERE style = 'Glam rock'
 ORDER BY lifespan DESC
