@@ -6,7 +6,7 @@
 
 DELIMITER // ;
 
-CREATE PROCEDURE ComputeAverageScoreForUser(user_id INT)
+CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
 	DECLARE total_score INT;
 	DECLARE total_project INT;
@@ -16,7 +16,7 @@ BEGIN
 	SET total_project =(SELECT COUNT(DISTINCT project_id) FROM corrections WHERE user_id = user_id);
 	UPDATE users
 	SET average_score = IF(total_project > 0, total_score / total_project, 0)
-	WHERE users.id = user_id;
+	WHERE id = user_id;
 END; //
 
 -- Revert DELIMITER
