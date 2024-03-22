@@ -7,7 +7,7 @@ DELIMITER // ;
 CREATE TRIGGER validate_email BEFORE UPDATE
 FOR EACH ROW
 	BEGIN
-		IF NEW.name != OLD.name THEN SET NEW.valid_email = 0;
+		IF NEW.email != OLD.email THEN SET NEW.valid_email = 0;
 		END IF;
 	END; //
 -- Revert DELIMITER
