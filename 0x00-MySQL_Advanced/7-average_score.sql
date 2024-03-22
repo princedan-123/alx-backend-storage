@@ -9,8 +9,13 @@ DELIMITER // ;
 CREATE PROCEDURE ComputeAverageScoreForUser(user_id INT)
 BEGIN
 	DECLARE average FLOAT;
-	-- Obtain the average score of a particular user from corrections table
-	SET average = (SELECT AVG(score) AS average_score FROM corrections WHERE user_id = user_id);
+	DECLARE total_score INT;
+	DECLARE total_project INT;
+	-- Obtain the total score of a particular student.
+	SET total_score = (SELECT SUM(score) FROM corrections WHERE user_id = user_id);
+	-- Obtain the total number of project of a particular student.
+	SET total_project =(SELECT DISTINCT COUNT(project_id) FROM corrections WHERE user_id = user_id);
+	SET average = IF(total_score = 0, 0, total_score / total_project);
 	UPDATE users
 	SET average_score = average
 	WHERE id = user_id;
