@@ -1,0 +1,3 @@
+// A script that list all the documents in school collections that passes a certain condition
+
+db.school.find({"name":"Holberton school"})
