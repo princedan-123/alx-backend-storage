@@ -1,0 +1,3 @@
+// A script that counts the number of documents in a MongoDB collection
+
+db.school.find().count()
