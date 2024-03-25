@@ -1,2 +1,3 @@
-<p>This directory is made to contain tutorial projects that revolves around databases</p>
-<p> README is still in development as tutorials is ungoing.</p>
+<h3>This directory is made to contain tutorial projects that revolves around databases</h3>
+<p>Advanced concepts in relational databases(MYSQL) were introduced</p>
+<p> No relational database(MongoDB) was also introduced </p>
