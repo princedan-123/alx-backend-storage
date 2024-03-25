@@ -1,0 +1,3 @@
+// A script that updates documents in MongoDB collections
+
+db.school.updateMany({name:"Holberton school"}, {$set:{"address":972}});
