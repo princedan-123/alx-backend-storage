@@ -9,12 +9,16 @@ if __name__ == "__main__":
     doc_with_post = client.logs.nginx.count_documents({"method": "POST"})
     doc_with_put = client.logs.nginx.count_documents({"method": "PUT"})
     doc_with_patch = client.logs.nginx.count_documents({"method": "PATCH"})
-    doc_del = client.logs.nginx.count_documents({"method": "DELETE"})
+    doc_with_del = client.logs.nginx.count_documents({"method": "DELETE"})
     doc_with_status = client.logs.nginx.count_documents({
         "method": "GET", "path": "/status"
         })
-    print(f"{total_log} logs\nMethods:\n\tmethod GET: {doc_with_get}\
-            \n\tmethod POST: {doc_with_post}\n\tmethod PUT: {doc_with_put}\
-            \n\tmethod PATCH: {doc_with_patch}\n\tmethod DELETE: {doc_del}\
-            \n{doc_with_status} status check\
-            ")
+    print(f"{total_log} logs")
+    print("Methods:")
+    print(f"    method GET: {doc_with_get}")
+    print(f"    method POST: {doc_with_post}")
+    print(f"    method PUT: {doc_with_put}")
+    print(f"    method PATCH: {doc_with_patch}")
+    print(f"    method DELETE: {doc_with_del}")
+    print(f"{doc_with_status} status check")
+    client.close()
