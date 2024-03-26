@@ -1,0 +1,3 @@
+// A script that lists all documents that begins with a specified string
+
+db.school.find({"name": {"$regex": "^Holberton"})
