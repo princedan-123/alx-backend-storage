@@ -10,4 +10,4 @@ def insert_school(mongo_collection, **kwargs):
         Return: the insertion id of the document if successful
     """
     result = mongo_collection.insert_one(kwargs)
-    return result.get(inserted_id, '')
+    return getattr(result, 'inserted_id', '')
