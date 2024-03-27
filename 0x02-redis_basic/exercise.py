@@ -33,4 +33,4 @@ class Cache:
 
     def get_int(self, key: str) -> int:
         """An instance method that converts a retrieved data to integer."""
-        return int.from_bytes(self.get(key), byteorder='big')
+        return int(self.get(key))
